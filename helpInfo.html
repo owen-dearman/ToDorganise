@@ -1,0 +1,97 @@
+<head>
+</head>
+<body style="background-color:rgb(41, 41, 41); color:white">
+    <center><h1>How to use this app</h1></center>
+    <section>
+        <h2 style="color:cornflowerblue">How do I create an item?</h2>
+        <p>You can create an item by filling in the fields under the 'Create an Item' section at the top of the main form. There are 4 provisional fields when creating a new item:</p>
+        <ul>
+            <li>Title</li>
+            <li>Description</li>
+            <li>Due Date</li>
+            <li>Priority</li>
+        </ul>
+       <p> The title is compulsory and must be unique. For example, you cannot have two items named "My Item" - you'll receive an error message when trying to create the second item. You will, however, be permitted to re-use the title provided one or both of the items have been moved to the Archive. You cannot
+        create an item if the title is left blank. This is because the title is used as the key to access all the information related to that particular item. Due to the way that items are stored and written to the
+        file for storage, there are two prohibited characters for use in the title. These are pipe | and and tilde ~. The title is the main way of viewing your item so it is suggested that you make it detailed.</p>
+
+        <p>The description is optional. Use this section to include more information about the item in question. Line breaks will be preserved during the writing process to storage. However, this is done through compressing
+            the description into a one-line format by delimiting lines based on pipe |. Including these in your description will result in unintended line breaks being added into your description, and the subsequent removal
+            of the pipe |.</p>
+        <p>
+            The due date is the deadline of the item. Select a date from the calendar to give your item a due date.
+        </p>
+        <p>
+            Your item can have a priority rating between 1 and 10. A lower priority rating means that your item is more important, and will result in a higher urgency rating. 
+        </p>
+        <p>
+            Once you have completed the relevant information for your item, press 'Create' to build your item. It will automatically get populated in the 'Incomplete Items' list, and the fields will clear.
+        </p>
+    </section>
+    <section>
+        <h2 style="color:cornflowerblue">How is urgency calculated?</h2>
+        <P>
+            Urgency is calculated as a metric utilising the priority value and the number of days remaining until the item is due. Items close to their completion date, or of a high priority are much more urgent than
+            those due in a long time, or of low priority. 
+        </P>
+        <ul>
+            <li>If the item is complete, then it has an urgency of 0</li>
+            <li>If the item is incomplete but overdue, then it has an urgency of 3500 </li>
+            <li>If the item has more than 5 days until it is due, then the urgency is calculated as <strong>Round(R + (R / P))</strong> where R is 500 - days until due, and P is priority</li>
+            <li>If the item has less than 5 days until it is due, then the urgency is calculated as <strong>Round(R + ((R / Priority) * (6 - D)))</strong> where R is 500 - days until due, P is priority, and D is days until due </li>
+            <li>If the item has 1 day or less until it is due, then the urgency value is 3000</li>
+        </ul>
+        <p>You can adjust the relevant metrics in the 'Edit' screen, and see the effect this has on the urgency.</p>
+    </section>
+    <section>
+        <h2 style="color:cornflowerblue">How do I save items?</h2>
+        <p>Your changes are automatically saved when you close the application, unless you use the 'Force Close' option under the 'File' menu. You can also save with 'File' > 'Save'. If the item hasn't been previosuly saved, you'll be prompted to 'Save As'.</p>
+    </section>
+    <section>
+        <h2 style="color:cornflowerblue">Can I have multiple lists?</h2>
+        <p>Yep. Use 'File' > 'New' to create and new list and 'File' > 'Open' to navigate between them. Use 'Create Backup' under 'Tools' to create a new list based on the current state of the open list. </p>
+    </section>
+    <section>
+        <h2 style="color:cornflowerblue">How do I view, complete, and delete?</h2>
+        <p> View items by double clicking on the item, right clicking and selecting 'View and Edit' or selecting the item and pressing CTRL+O.</p>
+        <p> Complete items by checking the incomplete item, right clicking and selecting 'Complete' or selecting the item and pressing CTRL+ENT.</p>
+        <p> Uncomplete items by checking the completed item, right clicking and selecting 'Uncomplete' or selecting the item and pressing CTRL+ENT.</p>
+        <p> Delete items by right clickin and selecting 'delete' or CTRL+DEL.</p>
+    </section>
+    <section>
+        <h2 style="color:cornflowerblue">How do I edit items?</h2>
+        <p>You can edit items by double clicking on the item, right clicking and selecting 'View and Edit' or selecting the item and pressing CTRL+O. This brings up the item in the 'Edit Screen' where all information 
+            regarding the item is visible. You can adjust the title, description, due date, created date, priority, and completion date if the item has been completed. Note that all restrictions outlined in 'How do I create an item?'
+            also apply to changes in this section. You can apply your changes with 'Save and Close' or cancel them by closing the window or pressing the 'Cancel' button.
+        </p>
+    </section>
+    <section>
+        <h2 style="color:cornflowerblue">How are items in my list ordered?</h2>
+        <p>Items in the 'Incomplete' list are ordered by urgency value. Items with an urgency value above 2500 are shown in red; those above 900 are shown in orange; those above 550 are shown in white; and any others are shown in green.
+            If items have the same urgency value, then they are ordered on due date, with closer items given priority. If this is also the same, then items are ranked on creation date, followed by alphabetical order.
+        </p>
+        <p> Items in the 'Complete' list are odered by completion date. If items have the same completion date, then they are ordered by due date. If this is also the same, then they are ordered by alphabetical order.</p>
+    </section>
+    <section>
+        <h2 style="color:cornflowerblue">What are the tools?</h2>
+        <ul>
+            <li>Tools > Search Archive- This allows you to search through all items in the archive, which contains old, complete items from all lists.</li>
+            <li>Tools > Create Back-up - This creates a back up of the USER_ITEMS file, with a date and time stamp</li>
+            <li>Tools > Remove Saved List On Startup - This removes the current stored default list which is loaded on startup. To set this, simply close the app on whatever you want to open next time.</li>
+            <li>Edit > Clear old items - This allows you to delete completed items that were completed 30, 60, or 365 days ago.</li>
+            <li>Edit > Delete... - This allows you to permeantly delete all incomplete, complete, or all items</li>
+            <li>Edit > Archive old items - This allows you to move complete items that were completed 30, 60 (or all) days ago. They are not deleted, but are written into the archive file, where they can only be viewed through the search function.</li>
+            <li>Edit > Check... - This allows you to check all incomplete, complete, or all items.</li>
+            <li>File > Force Exit - This closes the app without saving any modifications made in the current instance.</li>
+        </ul>
+    </section>
+    <section>
+        <h2 style="color:cornflowerblue">What is the archive?</h2>
+        <p>The archive is a place where old, completed items are stored to keep the complete list small and the app running smoothly. It is accessed from 'Tools' > 'Search Archive'. On app startup, any items completed more than 90 days ago are automatically moved to the archive.
+         You can trim the complete list even further through 'Tools' > 'Archive Old Items', or by selecting a complete item and right-clicking, or using Ctrl+A. The archive contains items from all lists, and so is the perfect place to search when you remember
+         completing an item, but can't remember which list it was in. In fact, once an item has been archived, the archive is the only place it can be found, and it can only be viewed here. No editing allowed. Once an item has been archived, it is stored using an 
+         archive number, which is unique to the item. This means that as long as all but one items are in the archive, multiple items can have the same title. Therefore, if you find yourself needing to repeat a task, simply move the completed item to the archive.
+         Items in the archive can be searched based on their title and description, and results are returned in alphabetical order. 
+        </p>
+    </section>
+</body>
